@@ -1,4 +1,6 @@
 import React from "react";
+import "./WeatherWidget.css";
+import WeatherClear from "./resources/weather-clear.png";
 
 const Days = [];
 
@@ -31,7 +33,7 @@ class WeatherWidget extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="card weather-widget">
         <WeatherNow />
         <WeatherNowDetails />
         <WeatherFuture />
@@ -43,7 +45,15 @@ class WeatherWidget extends React.Component {
 function WeatherNow(props) {
   return (
     <div>
-      <h3> Zagreb </h3> <image> Sunny, cloudy... </image> <p> Time label </p>{" "}
+      <div className="card-header">
+        <img
+          src={WeatherClear}
+          className="img-responsive float-right"
+          alt="Sunny"
+        />
+        <div className="card-title h5"> Zagreb </div>
+        <div className="card-subtitle text-gray">Sunny</div>
+      </div>
     </div>
   );
 }
@@ -51,7 +61,7 @@ function WeatherNow(props) {
 function WeatherNowDetails(props) {
   return (
     <div>
-      <h4> Temp </h4> <p> Date </p> <image> Img </image> <p> Wind </p>{" "}
+      <h4> Temp </h4> <p> Date </p> <img /> <p> Wind </p>{" "}
     </div>
   );
 }
@@ -70,7 +80,7 @@ function WeatherFuture(props) {
 function WeatherItem(props) {
   return (
     <div>
-      <p> Day </p> <image> Icon </image> <p> Temp </p>{" "}
+      <p> Day </p> <img /> <p> Temp </p>
     </div>
   );
 }
