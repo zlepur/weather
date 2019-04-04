@@ -1,4 +1,5 @@
 import React from "react";
+import "spectre.css";
 
 class Search extends React.Component {
   constructor(props) {
@@ -21,9 +22,22 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        <input onChange={this.updateText} />
-        <button onClick={this.commitText}>Search</button>
+      <div className="form-group">
+        <label className="form-label" htmlFor="input-place">
+          Location
+        </label>
+        <input
+          className="form-input"
+          type="text"
+          id="input-place"
+          onChange={this.updateText}
+        />
+        <button
+          className="btn btn-primary input-group-btn"
+          onClick={this.commitText}
+        >
+          Search
+        </button>
       </div>
     );
   }
