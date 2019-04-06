@@ -1,5 +1,4 @@
 import React from "react";
-import Search from "./Search";
 import WeatherWidget from "./WeatherWidget";
 import Header from "./Header";
 import "spectre.css";
@@ -21,17 +20,12 @@ export default class App extends React.Component {
     render() {
         return (
             <div id="app">
-                <Header />
+                <Header searchLocation={this.searchLocation} />
                 <div className="container" id="app-container">
                     <div className="columns">
                         <div className="column col-3" />
-                        <div className="column col-2">
-                            <Search searchLocation={this.searchLocation} />
-                        </div>
-                        <div className="column col-4">
-                            <WeatherWidget
-                                searchLocation={this.state.location}
-                            />
+                        <div className="column col-6">
+                            <WeatherWidget searchLocation={this.state.location} />
                         </div>
                     </div>
                 </div>

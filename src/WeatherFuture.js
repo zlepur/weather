@@ -1,5 +1,6 @@
 import React from "react";
 import { parse, format, isToday } from "date-fns";
+import "spectre.css";
 
 export default function WeatherFuture(props) {
     if (props.data === null) {

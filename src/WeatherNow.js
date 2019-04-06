@@ -1,5 +1,6 @@
 import React from "react";
 import { capitalizeFirstLetter } from "./Utils";
+import "spectre.css";
 
 function windDirectionToText(degree) {
     if (degree > 337.5) return "N";

@@ -1,7 +1,8 @@
 import React from "react";
-import "./WeatherWidget.css";
 import WeatherNow from "./WeatherNow";
 import WeatherFuture from "./WeatherFuture";
+import "spectre.css";
+import "./WeatherWidget.css";
 
 function ErrorTemplate(props) {
     return (

@@ -7,37 +7,28 @@ export default class Search extends React.Component {
         this.state = {
             text: ""
         };
-        this.updateText = this.updateText.bind(this);
-        this.commitText = this.commitText.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onKeyPress = this.onKeyPress.bind(this);
     }
 
-    updateText(evt) {
+    onKeyPress(evt) {
+        if (evt.key === "Enter") this.props.searchLocation(this.state.text);
+    }
+
+    onChange(evt) {
         this.setState({ text: evt.target.value });
-    }
-
-    commitText(evt) {
-        this.props.searchLocation(this.state.text);
-        this.setState({ text: "" });
     }
 
     render() {
         return (
-            <div className="form-group">
-                <label className="form-label" htmlFor="input-place">
-                    Location
-                </label>
+            <div className="input-group input-inline">
                 <input
                     className="form-input"
                     type="text"
-                    id="input-place"
-                    onChange={this.updateText}
+                    placeholder="location"
+                    onChange={this.onChange}
+                    onKeyPress={this.onKeyPress}
                 />
-                <button
-                    className="btn btn-primary input-group-btn"
-                    onClick={this.commitText}
-                >
-                    Search
-                </button>
             </div>
         );
     }
