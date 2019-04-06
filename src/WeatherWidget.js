@@ -2,7 +2,7 @@ import React from "react";
 import "./WeatherWidget.css";
 import WeatherClear from "./resources/weather-clear.png";
 
-const Days = [];
+const Days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 class WeatherWidget extends React.Component {
   constructor(props) {
@@ -35,7 +35,6 @@ class WeatherWidget extends React.Component {
     return (
       <div className="card weather-widget">
         <WeatherNow />
-        <WeatherNowDetails />
         <WeatherFuture />
       </div>
     );
@@ -51,36 +50,32 @@ function WeatherNow(props) {
           className="img-responsive float-right"
           alt="Sunny"
         />
-        <div className="card-title h5"> Zagreb </div>
-        <div className="card-subtitle text-gray">Sunny</div>
+        <div className="card-title h3"> Zagreb </div>
+        <div className="card-subtitle text-gray">Sunny, Wind NE 5 km/h</div>
+        <h4>20 °C</h4>
       </div>
-    </div>
-  );
-}
-
-function WeatherNowDetails(props) {
-  return (
-    <div>
-      <h4> Temp </h4> <p> Date </p> <img /> <p> Wind </p>{" "}
     </div>
   );
 }
 
 function WeatherFuture(props) {
   return (
-    <div>
-      {" "}
-      {Days.map((day, i) => (
-        <WeatherItem text={day} />
-      ))}{" "}
+    <div className="card-body">
+      <div className="columns">
+        {Days.map((day, i) => (
+          <WeatherItem day={day} />
+        ))}
+      </div>
     </div>
   );
 }
 
 function WeatherItem(props) {
   return (
-    <div>
-      <p> Day </p> <img /> <p> Temp </p>
+    <div className="column col-2 text-center">
+      <div>{props.day}</div>
+      <img src={WeatherClear} alt="Sunny" />
+      <div>30 °C</div>
     </div>
   );
 }

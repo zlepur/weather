@@ -24,11 +24,11 @@ class App extends React.Component {
         <Header />
         <div className="container" id="app-container">
           <div className="columns">
-            <div className="column col-4" />
+            <div className="column col-3" />
             <div className="column col-2">
               <Search searchLocation={this.searchLocation} />
             </div>
-            <div className="column col-3">
+            <div className="column col-4">
               <WeatherWidget searchLocation={this.state.location} />
             </div>
           </div>
