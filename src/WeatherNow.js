@@ -16,12 +16,10 @@ function windDirectionToText(degree) {
 export default function WeatherNow(props) {
     if (props.data === null) {
         return (
-            <div>
-                <div className="card-header">
-                    <div className="card-title h3"> Choose a city </div>
-                    <div className="card-subtitle text-gray"> No data </div>
-                    <h4> No data </h4>
-                </div>
+            <div className="card-header">
+                <div className="card-title h3"> Choose a city </div>
+                <div className="card-subtitle text-gray" />
+                <h6> No data to display </h6>
             </div>
         );
     }
@@ -37,19 +35,17 @@ export default function WeatherNow(props) {
     }
 
     return (
-        <div>
-            <div className="card-header">
-                <img
-                    src={"http://openweathermap.org/img/w/" + icon + ".png"}
-                    className="img-responsive float-right"
-                    alt="Sunny"
-                />
-                <div className="card-title h3"> {city} </div>
-                <div className="card-subtitle text-gray">
-                    {weatherDesc}, wind {windDirection} {windSpeed} km/h
-                </div>
-                <h4>{temp} °C</h4>
+        <div className="card-header">
+            <img
+                src={"http://openweathermap.org/img/w/" + icon + ".png"}
+                className="img-responsive float-right"
+                alt="Sunny"
+            />
+            <div className="card-title h3"> {city} </div>
+            <div className="card-subtitle text-gray">
+                {weatherDesc}, wind {windDirection} {windSpeed} km/h
             </div>
+            <h4>{temp} °C</h4>
         </div>
     );
 }
