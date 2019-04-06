@@ -17,7 +17,8 @@ export default class WeatherWidget extends React.Component {
         this.state = {
             searchLocation: "",
             location: "",
-            nowData: null
+            nowData: null,
+            futureData: null
         };
         this.error = null;
     }
@@ -32,32 +33,34 @@ export default class WeatherWidget extends React.Component {
     }
 
     async updateLocation() {
-        if (
-            !this.props.searchLocation ||
-            this.props.searchLocation.length === 0
-        )
-            return;
-        let url = `http://api.openweathermap.org/data/2.5/weather?appid=66a2d99da6ae21428e25bcd526c3ee57&q=${
-            this.props.searchLocation
-        }&units=metric`;
-        let response = await fetch(url);
-        if (!response.ok) {
-            let error;
-            if (response.status === 404) {
-                error = "City " + this.props.searchLocation + "was not found.";
-            } else {
-                error = "An error occured, try again later.";
-            }
-            this.setState({ error: error, nowData: null });
-            return;
-        }
+        if (this.props.searchLocation.length === 0) return;
 
-        let json = await response.json();
-        this.setState(() => ({
+        let error = null;
+        let data = await Promise.all(
+            ["weather", "forecast"].map(async type => {
+                let apiKey = "66a2d99da6ae21428e25bcd526c3ee57";
+                let url = `http://api.openweathermap.org/data/2.5/${type}?appid=${apiKey}&q=${
+                    this.props.searchLocation
+                }&units=metric`;
+                let response = await fetch(url);
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        error = "City " + this.props.searchLocation + "was not found.";
+                    } else {
+                        error = "An error occured, try again later.";
+                    }
+                    return null;
+                }
+                return response.json();
+            })
+        );
+
+        this.setState({
             searchLocation: this.props.searchLocation,
-            nowData: json,
-            error: null
-        }));
+            nowData: data[0],
+            error: error,
+            futureData: data[1]
+        });
     }
 
     render() {
@@ -65,7 +68,7 @@ export default class WeatherWidget extends React.Component {
         return (
             <div className="card weather-widget">
                 <WeatherNow data={this.state.nowData} />
-                <WeatherFuture />
+                <WeatherFuture data={this.state.futureData} />
             </div>
         );
     }
