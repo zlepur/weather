@@ -11,7 +11,7 @@ function ErrorTemplate(props) {
     );
 }
 
-class WeatherWidget extends React.Component {
+export default class WeatherWidget extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -70,5 +70,3 @@ class WeatherWidget extends React.Component {
         );
     }
 }
-
-export default WeatherWidget;

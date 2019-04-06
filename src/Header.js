@@ -2,7 +2,7 @@ import React from "react";
 import "spectre.css";
 import "./Header.css";
 
-function Header(props) {
+export default function Header(props) {
     return (
         <header className="navbar navshadow">
             <div className="navbar-primary">
@@ -18,5 +18,3 @@ function Header(props) {
         </header>
     );
 }
-
-export default Header;

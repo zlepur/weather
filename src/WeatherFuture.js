@@ -2,7 +2,7 @@ import React from "react";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-function WeatherFuture(props) {
+export default function WeatherFuture(props) {
     return (
         <div className="card-body">
             <div className="columns">
@@ -23,5 +23,3 @@ function WeatherItem(props) {
         </div>
     );
 }
-
-export default WeatherFuture;

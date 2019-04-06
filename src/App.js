@@ -5,7 +5,7 @@ import Header from "./Header";
 import "spectre.css";
 import "./App.css";
 
-class App extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -39,5 +39,3 @@ class App extends React.Component {
         );
     }
 }
-
-export default App;

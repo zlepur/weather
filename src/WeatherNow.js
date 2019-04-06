@@ -1,5 +1,5 @@
 import React from "react";
-import capitalizeFirstLetter from "./Utils";
+import { capitalizeFirstLetter } from "./Utils";
 
 function windDirectionToText(degree) {
     if (degree > 337.5) return "N";
@@ -13,7 +13,7 @@ function windDirectionToText(degree) {
     return "N";
 }
 
-function WeatherNow(props) {
+export default function WeatherNow(props) {
     if (props.data === null) {
         return (
             <div>
@@ -53,5 +53,3 @@ function WeatherNow(props) {
         </div>
     );
 }
-
-export default WeatherNow;
