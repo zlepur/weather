@@ -6,12 +6,12 @@ export default function Header(props) {
     return (
         <header className="navbar navshadow">
             <div className="navbar-primary">
-                <a className="navbar-brand">
+                <div className="navbar-brand">
                     <span className="text-large">Wheather App</span>
-                </a>
+                </div>
             </div>
             <div className="navbar-section">
-                <a href="#" className="btn btn-link">
+                <a href="/about" className="btn btn-link">
                     About
                 </a>
             </div>
