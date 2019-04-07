@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Search from "./Search";
 import "spectre.css";
 import "./Header.css";
@@ -8,16 +9,18 @@ export default function Header(props) {
         <header className="navbar navshadow">
             <section className="navbar-primary">
                 <div className="navbar-brand">
-                    <span className="text-large">Wheather App</span>
+                    <Link to="/">
+                        <span className="text-large">Wheather App</span>
+                    </Link>
                 </div>
             </section>
             <section className="navbar-section search-section">
-                <Search searchLocation={props.searchLocation} />
+                {props.searchLocation && <Search searchLocation={props.searchLocation} />}
             </section>
             <section className="navbar-section">
-                <a href="/about" className="btn btn-link">
+                <Link to="/about" href="/about" className="btn btn-link">
                     About
-                </a>
+                </Link>
             </section>
         </header>
     );
