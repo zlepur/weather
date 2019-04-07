@@ -15,7 +15,7 @@ export default function About() {
                             embedded in application for simplicity.)
                         </p>
                         <p>
-                            This projects depends on spectre.css, date-fns and react-router
+                            This projects also depends on spectre.css, date-fns and react-router
                             libraries.
                         </p>
                     </div>
