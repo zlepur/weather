@@ -17,7 +17,6 @@ export default class WeatherWidget extends React.Component {
         super(props);
         this.state = {
             searchLocation: "",
-            location: "",
             nowData: null,
             futureData: null
         };

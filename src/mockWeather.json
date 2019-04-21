@@ -1,0 +1,42 @@
+{
+    "coord": {
+        "lon": 15.98,
+        "lat": 45.81
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 18.13,
+        "pressure": 1030,
+        "humidity": 42,
+        "temp_min": 16.11,
+        "temp_max": 20
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.1,
+        "deg": 60
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1555669047,
+    "sys": {
+        "type": 1,
+        "id": 6816,
+        "message": 0.006,
+        "country": "HR",
+        "sunrise": 1555646623,
+        "sunset": 1555695987
+    },
+    "id": 3186886,
+    "name": "Zagreb",
+    "cod": 200
+}

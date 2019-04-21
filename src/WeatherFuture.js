@@ -31,7 +31,7 @@ export default function WeatherFuture(props) {
     );
 }
 
-function WeatherItem(props) {
+export function WeatherItem(props) {
     return (
         <div className="column col-2 text-center">
             <div>{props.data.day}</div>
